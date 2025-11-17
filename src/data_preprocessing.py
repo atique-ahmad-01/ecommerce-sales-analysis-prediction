@@ -139,7 +139,7 @@ print("Total Records:", len(df_clean))
 print("Unique Customers:", df_clean['CustomerID'].nunique())
 print("Unique Products:", df_clean['StockCode'].nunique())
 print("Unique Invoices:", df_clean['InvoiceNo'].nunique())
-print("Total Revenue: £", df_clean['TotalPrice'].sum())
+print("Total Revenue:", df_clean['TotalPrice'].sum())
 
 print("\n Preprocessing completed successfully!")
 
