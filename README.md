@@ -20,6 +20,10 @@ ecommerce-sales-analysis-prediction/
 │   ├── model_training.py               # ML training script
 │   └── utils.py                        # Helper functions
 │
+├── tableau/
+│   ├── ecommerce_dashboard.twbx        # Tableau workbook
+│   └── dashboard_screenshots/          # Dashboard images
+│
 ├── streamlit/
 │   └── app.py                          # Streamlit application
 │
