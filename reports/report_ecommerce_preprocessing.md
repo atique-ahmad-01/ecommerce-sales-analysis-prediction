@@ -143,7 +143,7 @@ The cleaned dataset was transformed into the following tables:
 | Unique Customers     | 4,338 |
 | Unique Products      | 3,665 |
 | Unique Invoices      | 18,532 |
-| Total Revenue        | £8,887,208.89 |
+| Total Revenue        | 8,887,208.89 |
 
 - No missing values remain after cleaning  
 - All numeric and date fields are in proper formats  
@@ -163,3 +163,15 @@ The following files were saved in `data/processed/`:
 | invoice_items.csv         | InvoiceItem table |
 
 ---
+
+## 8. UML-style ER diagram
+
+Entities: Customer, Product, Invoice, InvoiceItem
+Primary Keys (PK) and Foreign Keys (FK) clearly labeled
+
+Relationships:
+- Customer 1→N Invoice
+- Invoice 1→N InvoiceItem
+- Product 1→N InvoiceItem
+
+![ER Diagram](../results/ER%20Diagram.png)
