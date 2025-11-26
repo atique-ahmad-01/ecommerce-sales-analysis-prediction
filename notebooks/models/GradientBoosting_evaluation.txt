@@ -1,0 +1,5 @@
+Model: GradientBoosting
+MAE:  2.3427
+MSE:  50.5997
+RMSE: 7.1133
+R²:   0.9877
