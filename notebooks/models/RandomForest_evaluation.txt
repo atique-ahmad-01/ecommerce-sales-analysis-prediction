@@ -1,0 +1,5 @@
+Model: RandomForest
+MAE:  0.1453
+MSE:  23.0690
+RMSE: 4.8030
+R²:   0.9944
