@@ -71,7 +71,7 @@ Five regression algorithms were trained and evaluated:
 
 | Model | R² Score | MSE |
 |-------|----------|-----|
-| **RandomForest** ⭐ | **0.9854** | **0.19** |
+| **RandomForest**  | **0.9854** | **0.19** |
 | GradientBoosting | 0.9826 | 0.25 |
 | LinearRegression | 0.7642 | 18.92 |
 | Ridge | 0.7641 | 18.93 |
@@ -100,32 +100,97 @@ Five regression algorithms were trained and evaluated:
 ## 5. Visualizations
 
 ### 5.1 R² Score Comparison
+
 ![Model Comparison - R² Scores](../results/model_r2_comparison.png)
 
-*Shows the R² scores for all five models, clearly demonstrating the superiority of ensemble methods.*
+Shows the R² scores for all evaluated models, highlighting ensemble performance.
 
 ### 5.2 Predicted vs Actual Values
+
 ![Predicted vs Actual](../results/predicted_vs_actual.png)
 
-*Scatter plot with color gradient showing:*
-- *X-axis: Actual TotalPrice values*
-- *Y-axis: Predicted TotalPrice values*
-- *Color intensity: Magnitude of predictions*
-- *Interpretation: Points close to the diagonal indicate accurate predictions*
+Scatter plot of actual vs predicted `TotalPrice` values for the test set.
 
-### 5.3 Residual Analysis
-![Residuals Distribution](../results/residuals_distribution.png)
+### 5.3 Model-specific Plots
+— Random Forest diagnostic / training plot
 
-*Histogram of residuals (Actual - Predicted) showing:*
-- *Mean residual close to zero, indicating unbiased predictions*
-- *Normal distribution pattern suggests good model fit*
+![image](../results/RandomForest.png)
 
-### 5.4 Error Distribution by Price Range
-![Error Distribution](../results/error_by_price_range.png)
+— Gradient Boosting diagnostic / training plot
 
-*Box plot showing:*
-- *How prediction errors vary across different price ranges*
-- *Model performs better on mid-range prices*
+![image](../results/GradientBoosting.png) 
+
+— Linear Regression diagnostic plot
+
+![image](../results/LinearRegression.png) 
+
+— Ridge diagnostic plot
+
+![image](../results/Ridge.png) 
+
+— Lasso diagnostic plot
+
+![image](../results/Lasso.png) 
+
+### 5.4 Feature & Data Visualizations
+— feature importance from Random Forest
+
+![image](../results/Feature Importance (Random Forest Regressor).png) 
+
+— distributions for numeric features used in modeling
+
+![image](../results/Feature Distributions.png) 
+
+— correlation heatmap of encoded features
+
+![image](../results/Correlation Heatmap (Encoded Features).png) 
+
+All visualization files are in the `results/` directory. Use these files as the canonical images for figures in this report.
+
+### 5.5 Detailed Descriptions and Interpretation
+Below are concise descriptions and guidance for interpreting each plot included in `results/`. These can be used as figure captions or as in-report explanations.
+
+![model_r2_comparison](../results/model_r2_comparison.png) 
+
+— Compares the R² score for each trained model on the test set. Interpretation: higher values indicate better explained variance; ensemble methods (Random Forest, Gradient Boosting) are expected to be at the top.
+
+![image](../results/predicted_vs_actual.png) 
+
+— Scatter plot of predicted vs actual `TotalPrice`. Interpretation: points lying on the 45° diagonal indicate perfect predictions; spread away from the diagonal indicates errors. Look for heteroscedastic patterns (wider spread at higher prices) to identify where the model under/over-predicts.
+
+![image](../results/RandomForest.png) 
+
+— Random Forest training diagnostics (e.g., OOB error or learning curves) or model behavior visualization. Interpretation: use this to inspect model stability across trees, verify convergence as estimators increase, and check overfitting vs generalization.
+
+![image](../results/GradientBoosting.png) 
+
+— Gradient Boosting training diagnostics (learning curve, loss vs iterations). Interpretation: inspect learning rate effects, check for early-stopping behavior, and identify whether more trees reduce validation error.
+
+![image](../results/LinearRegression.png) 
+
+— Linear model diagnostic plot (residuals vs fitted, or coefficient magnitudes). Interpretation: use to check linearity assumptions, residual patterns, and influential points that break linear assumptions.
+
+![image](../results/Ridge.png) 
+
+— Ridge regression diagnostic plot (coefficients vs regularization strength or validation error curve). Interpretation: shows effect of L2 regularization on coefficient shrinkage and model bias-variance tradeoff.
+
+![image](../results/Lasso.png) 
+
+— Lasso regression diagnostic plot (sparse coefficient selection or validation metrics vs α). Interpretation: highlights which features are driven to zero by L1 regularization and helps understand feature selection behavior.
+
+![image](../results/Feature Importance (Random Forest Regressor).png) 
+
+— Bar chart of feature importances from the Random Forest. Interpretation: shows which features contribute most to model decisions (UnitPrice and Quantity are expected to dominate). Useful for feature selection and business insight.
+
+![image](../results/Feature Distributions.png) 
+
+— Histograms or KDE plots of numeric features used for modeling (e.g., `Quantity`, `UnitPrice`, `TotalPrice`). Interpretation: helps validate preprocessing (outlier removal, scaling needs) and whether transformations (log, clipping) are needed.
+
+![image](../results/Correlation Heatmap (Encoded Features).png) 
+
+— Correlation matrix of encoded and numeric features. Interpretation: identify strongly correlated predictors (multicollinearity) and potential redundant features that may be removed or combined.
+
+When including these figures in the report or presentation, add a one-sentence interpretation (what to look for) and a one-line action (what to do if an issue is detected). For example, for a wide spread in `predicted_vs_actual.png) at high prices: "Action: consider log-transforming `TotalPrice` or adding stratified models for high-price transactions."
 
 ---
 
@@ -185,7 +250,36 @@ The following files have been saved for production deployment:
 ├── customer_encoder.pkl               # CustomerID label encoder
 ├── predictions.csv                    # Test set predictions
 ```
----
+## Model Artifacts & Evaluation (locations)
+
+To keep the project organized the model evaluation reports, trained model artifacts and visualizations are stored in the repository as follows:
+
+ - `notebooks/models/` — contains the trained model files and plain-text evaluation reports for each algorithm (exact list):
+   - `GradientBoosting_evaluation.txt`
+   - `GradientBoosting_model.pkl`
+   - `Lasso_evaluation.txt`
+   - `Lasso_model.pkl`
+   - `LinearRegression_evaluation.txt`
+   - `LinearRegression_model.pkl`
+   - `RandomForest_evaluation.txt`
+   - `RandomForest_model.pkl`
+   - `Ridge_evaluation.txt`
+   - `Ridge_model.pkl`
+
+ - `results/` — contains all generated plots and visualizations used in this report (exact list):
+   - `Correlation Heatmap (Encoded Features).png`
+   - `ER Diagram.png`
+   - `Feature Distributions.png`
+   - `Feature Importance (Random Forest Regressor).png`
+   - `GradientBoosting.png`
+   - `Lasso.png`
+   - `LinearRegression.png`
+   - `RandomForest.png`
+   - `Ridge.png`
+   - `model_r2_comparison.png`
+   - `predicted_vs_actual.png`
+
+These locations are the canonical sources for evaluation text and images referenced in this document. When regenerating models or plots, update the files in these folders so the report stays current.
 
 ## 10. Conclusion
 
