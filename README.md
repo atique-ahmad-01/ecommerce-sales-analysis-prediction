@@ -1,67 +1,32 @@
 # Project Overview
-
 ```
 ecommerce-sales-analysis-prediction/
 │
-├── .gitignore
-├── LICENSE
-├── README.md
 ├── data/
-│   ├── raw/
-│   │   ├── Online Retail.xlsx
-│   │   └── OnlineRetail.csv
-│   └── processed/
-│       ├── ecommerce_cleaned.csv
-│       ├── customers.csv
-│       ├── products.csv
-│       ├── invoices.csv
-│       ├── invoice_items.csv
-│       └── regression/
-│           └── output/
-│               ├── best_regression_model.pkl
-│               ├── stock_encoder.pkl
-│               ├── country_encoder.pkl
-│               ├── customer_encoder.pkl
-│               └── predictions.csv
+│   ├── raw/                          # Original datasets
+│   └── processed/                     # Cleaned & normalized data and best model output
 │
 ├── notebooks/
-│   └── regression_model.ipynb
+│   └── regression_model.ipynb        # ML pipeline notebook
 │
 ├── src/
-│   └── data_preprocessing.py
+│   └── data_preprocessing.py         # Data cleaning scripts
 │
 ├── streamlit/
-│   └── app.py
+│   └── app.py                        # Interactive web app
 │
 ├── tableau/
-│   ├── ecommerce_dashboard.twbx
-│   ├── annie_dashboard/
-│   │   └── Customer Spend Analysis Dashboard.png
-│   └── dashboard_screenshots/
-│       ├── Dashboard_preview.png
-│       ├── Top Customer Spending.png
-│       ├── Sales Overview.png
-│       ├── Dashboard_1.png
-│       ├── Dashboard_2.png
-│       ├── Revenue by Hour.png
-│       ├── KPI: Total Revenue.png
-│       ├── Dashboard_containers.png
-│       ├── top products.png
-│       ├── combine tables.png
-│       └── Dashboard.png
+│   └── ecommerce_dashboard.twbx      # Business dashboards
 │
 ├── results/
-│   ├── predicted_vs_actual.png
+│   ├── predicted_vs_actual.png       # Model visualizations
 │   ├── feature_importance.png
-│   ├── ER Diagram.png
 │   ├── model_r2_comparison.png
-│   └── residuals_distribution.png
-│
-├── docs/
-│   ├── report_ecommerce_preprocessing.md
-│   ├── report_regression_pipeline.md
-│   └── report_tableau_dashboard.md
-│
-└── requirements.txt
-
+│   ├── residuals_distribution.png
+│   .
+│   
+└── docs/
+    ├── report_ecommerce_preprocessing.md
+    ├── report_regression_pipeline.md
+    └── report_tableau_dashboard.md
 ```
