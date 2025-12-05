@@ -30,3 +30,10 @@ ecommerce-sales-analysis-prediction/
     ├── report_regression_pipeline.md
     └── report_tableau_dashboard.md
 ```
+
+### Documentations
+
+- [Project Report (PDF)](docs/Project_T&T_MSDS25030.pdf)
+- [E-commerce Preprocessing Report](docs/report_ecommerce_preprocessing.md)
+- [Regression Pipeline Report](docs/report_regression_pipeline.md)
+- [Tableau Dashboard Report](docs/report_tableau_dashboard.md)
